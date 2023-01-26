@@ -39,7 +39,7 @@ readline.question('Enter the name of the atom: ', name => {
                     atomInformation = data;
                     console.log("Name: " + atomInformation.atom.name);
                     console.log("Symbol: " + atomInformation.atom.symbol);
-                    console.log("Atomic Number: " + atomInformation.atom.atomic_umber);
+                    console.log("Atomic Number: " + atomInformation.atom.atomic_number);
                     console.log("Description: " + atomInformation.summary);
                 });
 
