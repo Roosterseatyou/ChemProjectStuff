@@ -1,5 +1,3 @@
-const wiki = require("wikipedia");
-
 module.exports = {
     atomByName: atomByName,
     atomBySymbol: atomBySymbol,
