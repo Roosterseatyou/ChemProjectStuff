@@ -108,6 +108,8 @@ function searchAtom() {
                     console.log("Name: " + atomInformation.atom.name);
                     console.log("Symbol: " + atomInformation.atom.symbol);
                     console.log("Atomic Number: " + atomInformation.atom.atomic_number);
+                    console.log("Atomic Mass: " + atomInformation.atom.atomic_mass);
+                    console.log("Electron Configuration: " + atomInformation.electron_configuration);
                     console.log("Description: " + atomInformation.summary);
                     startCommandLine();
                 });

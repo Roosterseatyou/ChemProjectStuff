@@ -8,7 +8,7 @@ module.exports = {
     atomicNameToAtomicNumber: atomicNameToAtomicNumber,
 }
 
-atomsJson = require('./atoms.json')["lol"];
+atomsJson = require('./atoms.json')['atoms'];
 
 function atomByName(atomicName) {
     return atomsJson.filter(function (atom) {

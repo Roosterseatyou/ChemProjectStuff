@@ -30,6 +30,34 @@ app.get('/search/:atom_rep', async (req, res) => {
 
 const searchAtoms = require('./search.js');
 
+function generateElectronConfiguration(atom) {
+    if(require("./atoms.json")["weird_stuff"].includes(atom.symbol)) {
+        return "Sadly, this atom is too weird to have a normal electron configuration and cannot easily be generated. Sorry! :("
+    }
+    const energyLevels = "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f14 5d10 6p6 7s2 5f14 6d10 7p6".split(" ");
+    let electronConfiguration = "";
+    let electrons = atom.atomic_number;
+    for (let i = 0; i < energyLevels.length; i++) {
+        const energyLevel = energyLevels[i];
+        var energyLevelElectrons = parseInt(energyLevel[energyLevel.length-1]);
+        //check if the energy level can contain double digits
+        if (energyLevel[1] === "f" || energyLevel[1] === "d") {
+            console.log("Double digit energy level detected!")
+            var energyLevelElectrons = parseInt(energyLevel[energyLevel.length-2] + energyLevel[energyLevel.length - 1]);
+        }
+        if (electrons >= energyLevelElectrons) {
+            electronConfiguration += energyLevel;
+            electrons -= energyLevelElectrons;
+        } else {
+            if(electrons > 0) {
+                electronConfiguration += energyLevel[0] + energyLevel[1] + electrons;
+            }
+            break;
+        }
+    }
+    return electronConfiguration;
+}
+
 
 async function searchWikipedia(searchTerm) {
     //check if the search term is a number
@@ -39,6 +67,7 @@ async function searchWikipedia(searchTerm) {
         const scrape = {
             "title": searchRes.title,
             "summary": summary.description + " " + summary.extract,
+            "electron_configuration": generateElectronConfiguration(searchAtoms.atomByName(searchRes.title)),
             "atom": searchAtoms.atomByName(searchRes.title)
         }
         console.log(scrape)
@@ -50,6 +79,7 @@ async function searchWikipedia(searchTerm) {
             const scrape = {
                 "title": searchRes.title,
                 "summary": summary.description + " " + summary.extract,
+                "electron_configuration": generateElectronConfiguration(searchAtoms.atomByName(searchRes.title)),
                 "atom": searchAtoms.atomByName(searchRes.title)
             }
             console.log(scrape)
@@ -61,6 +91,7 @@ async function searchWikipedia(searchTerm) {
             const scrape = {
                 "title": searchRes.title,
                 "summary": summary.description + " " + summary.extract,
+                "electron_configuration": generateElectronConfiguration(searchAtoms.atomByName(searchRes.title)),
                 "atom": searchAtoms.atomByName(searchRes.title)
             }
             console.log(scrape)
