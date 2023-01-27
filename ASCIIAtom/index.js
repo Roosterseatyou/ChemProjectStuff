@@ -9,6 +9,8 @@ module.exports = {
     'readline': readline
 }
 
+console.log('\n****************************\nWelcome to the ASCII Atom API!');
+console.log('This was made for Mr. Hartman\'s Chemistry class.\n****************************\n');
 console.log('             ==============                 ');
 console.log('           //              \\\\             ');
 console.log('         //                  \\\\           ');
@@ -25,8 +27,15 @@ console.log('         \\\\                  //           ');
 console.log('           \\\\              //             ');
 console.log('             ==============                 ');
 
-console.log('\n****************************\nWelcome to the ASCII Atom API!');
-console.log('This was made for Mr. Hartman\'s Chemistry class.\n****************************\n');
+console.log("\n\n------------------------------------")
+console.log("E - Electron, P - Proton, N - Neutron")
+console.log("Electrons sit in the Energy Shells, which are the electron cloud.")
+console.log("Protons and Neutrons sit in the Nucleus, which is the center of the atom.")
+console.log("Electrons have a charge of -1, Protons have a charge of +1, and Neutrons have no charge.")
+console.log("See the atom-parts command for more information on the parts of an atom!")
+console.log("------------------------------------")
+
+
 
 async function start() {
     console.log('Type help to get started!');
