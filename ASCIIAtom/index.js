@@ -46,11 +46,9 @@ function startCommandLine() {
             console.log('experiments - Displays the experiments that contributed to our modern understanding of the atom')
             console.log('----------------------------------------------------------------\n')
             console.log('\n')
-            startCommandLine();
         }
         else if (command === 'search') {
             searchAtom();
-            startCommandLine();
         }
         else if (command === 'atom-parts') {
             console.log('------------------------Parts of an atom------------------------');
@@ -61,7 +59,6 @@ function startCommandLine() {
             console.log("Energy Shells - The energy shells are the electron cloud. These are the energy levels that electrons can exist in. Electrons can only exist in certain energy levels, and this was discovered by Niels Bohr in 1913 through the Atomic Emmision Experiment (run the experiments command!).\n")
             console.log('----------------------------------------------------------------\n')
             console.log('\n')
-            startCommandLine();
         }
         else if (command === 'experiments') {
             console.log('----------------Experiments that contributed to our modern understanding of the atom----------------');
@@ -73,7 +70,6 @@ function startCommandLine() {
             console.log('--------------------------------------------------------------------------------------------------\n')
             console.log('\n')
             
-            startCommandLine();
         }
         else if (command === 'exit') {
             console.log('Exiting...');
@@ -81,8 +77,9 @@ function startCommandLine() {
         }
         else {
             console.log('Invalid command! Type help to see a list of commands.\n');
-            startCommandLine();
+            
         }
+        startCommandLine();
     });
 }
 
