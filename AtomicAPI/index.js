@@ -20,9 +20,12 @@ app.listen(port, () => {
 
 app.get('/search/:atom_rep', async (req, res) => {
     const atom = await searchWikipedia(req.params.atom_rep);
-    console.log(req.ip + " searched for " + req.params.atom_rep)
-    console.log("Sending " + atom.toString() + " to " + req.ip)
-    res.send(atom);
+    if(atom.title == "Undefined") {
+        res.status(404).send("No atom was found with that information!");
+
+    }else {
+        res.send(atom);
+    }
 });
 
 const searchAtoms = require('./search.js');
