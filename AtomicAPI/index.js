@@ -42,7 +42,6 @@ function generateElectronConfiguration(atom) {
         var energyLevelElectrons = parseInt(energyLevel[energyLevel.length-1]);
         //check if the energy level can contain double digits
         if (energyLevel[1] === "f" || energyLevel[1] === "d") {
-            console.log("Double digit energy level detected!")
             var energyLevelElectrons = parseInt(energyLevel[energyLevel.length-2] + energyLevel[energyLevel.length - 1]);
         }
         if (electrons >= energyLevelElectrons) {
