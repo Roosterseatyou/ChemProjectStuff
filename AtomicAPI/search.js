@@ -12,13 +12,13 @@ atomsJson = require('./atoms.json')['atoms'];
 
 function atomByName(atomicName) {
     return atomsJson.filter(function (atom) {
-        return atom.name === atomicName;
+        return atom.name.toLowerCase() === atomicName.toLowerCase();
     })[0];
 }
 
 function atomBySymbol(atomicSymbol) {
     return atomsJson.filter(function (atom) {
-        return atom.symbol === atomicSymbol;
+        return atom.symbol.toLowerCase() === atomicSymbol.toLowerCase();
     })[0];
 }
 
@@ -30,7 +30,7 @@ function atomByNumber(atomicNumber) {
 
 function atomicSymbolToAtomicName(atomicSymbol) {
     return atomsJson.filter(function (atom) {
-        return atom.symbol === atomicSymbol;
+        return atom.symbol.toLowerCase() === atomicSymbol.toLowerCase();
     })[0]["name"];
 }
 
@@ -48,6 +48,6 @@ function atomicNumberToAtomicName(atomicNumber) {
 
 function atomicNameToAtomicNumber(atomicName) {
     return atomsJson.filter(function (atom) {
-        return atom.name === atomicName;
+        return atom.name.toLowerCase() === atomicName.toLowerCase();
     })[0]["number"];
 }
